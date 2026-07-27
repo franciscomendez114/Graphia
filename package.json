@@ -1,0 +1,32 @@
+{
+  "name": "graphia",
+  "version": "2.0.0",
+  "description": "A graphing calculator that visualises derivatives and Riemann sums, built from scratch with no dependencies",
+  "keywords": [
+    "graphing-calculator",
+    "calculus",
+    "derivative",
+    "riemann-sum",
+    "integral",
+    "canvas",
+    "expression-parser",
+    "symbolic-differentiation",
+    "no-dependencies"
+  ],
+  "homepage": "https://franciscomendez114.github.io/Graphia/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/franciscomendez114/Graphia.git"
+  },
+  "author": "Francisco Mendez",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 serve.py",
+    "test": "python3 serve.py 8123 & sleep 1 && open http://localhost:8123/tests/"
+  },
+  "comments": {
+    "dependencies": "Deliberately none. The parser, differentiator and plotter are all first-party; package.json exists for metadata and the start script only. Node is not required to run, build or test the project."
+  }
+}

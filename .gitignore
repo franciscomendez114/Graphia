@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Dependencies — Graphia has none at runtime; these are leftovers from the
+# original mathjs-based version and are not needed to run or build anything.
+node_modules/
+node/
+
+# Claude Code local config (see serve.py / the README for how to run the app)
+.claude/

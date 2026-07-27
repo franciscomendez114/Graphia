@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Graphia — tests</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --bg: #f6f7f9;
+            --panel: #fff;
+            --border: #e3e6eb;
+            --text: #1a1d23;
+            --dim: #6b7280;
+            --ok: #059669;
+            --bad: #dc2626;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0e1116;
+                --panel: #161a21;
+                --border: #262c36;
+                --text: #e8eaee;
+                --dim: #9aa2ae;
+                --ok: #34d399;
+                --bad: #f87171;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 32px 20px 64px;
+            background: var(--bg);
+            color: var(--text);
+            font: 14px/1.5 ui-sans-serif, -apple-system, 'Segoe UI', sans-serif;
+        }
+
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 19px;
+            margin: 0 0 4px;
+        }
+
+        .lede {
+            color: var(--dim);
+            margin: 0 0 22px;
+            font-size: 13px;
+        }
+
+        .lede a {
+            color: inherit;
+        }
+
+        .summary {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .summary.is-passing {
+            color: var(--ok);
+            background: color-mix(in srgb, var(--ok) 10%, var(--panel));
+        }
+
+        .summary.is-failing {
+            color: var(--bad);
+            background: color-mix(in srgb, var(--bad) 10%, var(--panel));
+        }
+
+        section {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 11px;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin: 0 0 8px;
+        }
+
+        h2.is-failing {
+            color: var(--bad);
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+        }
+
+        li {
+            padding: 2px 0 2px 22px;
+            position: relative;
+            color: var(--dim);
+        }
+
+        li::before {
+            position: absolute;
+            left: 2px;
+            font-family: ui-monospace, monospace;
+        }
+
+        li.ok::before {
+            content: '✓';
+            color: var(--ok);
+        }
+
+        li.bad {
+            color: var(--bad);
+        }
+
+        li.bad::before {
+            content: '✕';
+            color: var(--bad);
+        }
+
+        pre {
+            margin: 4px 0 8px;
+            padding: 8px 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: pre-wrap;
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Graphia test suite</h1>
+        <p class="lede">
+            Runs the app's own ES modules, in the browser, with no build step and no
+            test framework. <a href="../index.html">Back to the calculator</a>.
+        </p>
+        <div id="results">Running…</div>
+    </main>
+    <script type="module" src="suite.js"></script>
+</body>
+</html>
