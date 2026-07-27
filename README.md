@@ -4,7 +4,7 @@
 
 **A graphing calculator that shows you how derivatives and integrals actually work.**
 
-Built from scratch — its own expression parser, its own symbolic differentiation,
+Built from scratch, its own expression parser, its own symbolic differentiation,
 its own plotter. No libraries, no build step, no dependencies.
 
 [**Try it →**](https://franciscomendez114.github.io/Graphia/)
@@ -23,8 +23,8 @@ that it will also show you *why* the calculus works.
 <img src="docs/derivative-tangent.png" alt="A cubic with its derivative, tangent line and converging secant" width="100%">
 
 Pick a point on the curve and drag it. Graphia draws the **tangent** there
-(red), plots **f′(x)** across the whole domain (orange, dashed), and — with the
-limit definition switched on — the **secant** through `(a, f(a))` and
+(red), plots **f′(x)** across the whole domain (orange, dashed), and (with the
+limit definition switched on) the **secant** through `(a, f(a))` and
 `(a + h, f(a + h))` with its rise-and-run triangle (purple).
 
 Then shrink `h`. The secant rotates into the tangent and the difference quotient
@@ -36,7 +36,7 @@ f′(a) = lim   f(a + h) − f(a)
                      h
 ```
 
-Derivatives are computed **symbolically** where the rules apply — `d/dx[x³ − 3x]`
+Derivatives are computed **symbolically** where the rules apply, `d/dx[x³ − 3x]`
 comes back as `3x² − 3`, not as a numerical approximation. Where no rule applies
 (`min`, `mod`, …), it falls back to a numeric limit so the tangent still works.
 
@@ -45,7 +45,7 @@ comes back as `3x² − 3`, not as a numerical approximation. Where no rule appl
 <img src="docs/riemann-midpoint.png" alt="Riemann sums under a sine curve, with signed areas" width="100%">
 
 Drag the interval handles and watch the **Riemann sum** rebuild. Four rules are
-available — left endpoint, right endpoint, midpoint and trapezoid — and the dots
+available (left endpoint, right endpoint, midpoint and trapezoid) and the dots
 show you exactly where each rule takes its sample.
 
 Area below the axis counts as negative (red), which is the part that trips people
@@ -109,13 +109,13 @@ python3 serve.py
 Then open <http://localhost:8123>. (`serve.py` is a small wrapper around Python's
 built-in server that disables caching, so edits show up on refresh.)
 
-Opening `public/index.html` straight from the filesystem will *not* work — ES
+Opening `public/index.html` straight from the filesystem will *not* work,  ES
 modules require `http://`.
 
 ## Tests
 
 Start the server, then open <http://localhost:8123/tests/>. 120 tests, no
-framework, no build — they import the same modules the app does and run in the
+framework, no build, they import the same modules the app does and run in the
 browser.
 
 The one worth pointing out is the symbolic-derivative property test. Rather than
@@ -216,7 +216,7 @@ graphing calculator works by building one, and then to add something calculators
 usually leave out: a way to *see* what a derivative and an integral are, rather
 than just being handed the answer.
 
-This version keeps that idea and rebuilds the machinery underneath it — a real
+This version keeps that idea and rebuilds the machinery underneath it, a real
 expression parser, symbolic differentiation, and a plotter whose cost no longer
 depends on the zoom level.
 
