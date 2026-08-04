@@ -1,7 +1,7 @@
 # Publish the calculator to GitHub Pages.
 #
-# There is no build step — `public/` is uploaded as-is, which is the same thing
-# `python3 serve.py` serves locally.
+# There is no build step — the repo root is uploaded as-is, which is the same
+# thing `python3 serve.py` serves locally.
 #
 # One-time setup: Settings → Pages → Build and deployment → Source: GitHub Actions.
 
@@ -35,7 +35,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: .
 
       - id: deployment
         uses: actions/deploy-pages@v4

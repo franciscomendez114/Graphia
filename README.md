@@ -109,7 +109,7 @@ python3 serve.py
 Then open <http://localhost:8123>. (`serve.py` is a small wrapper around Python's
 built-in server that disables caching, so edits show up on refresh.)
 
-Opening `public/index.html` straight from the filesystem will *not* work,  ES
+Opening `index.html` straight from the filesystem will *not* work, ES
 modules require `http://`.
 
 ## Tests
@@ -128,33 +128,32 @@ this catches that.
 ## How it works
 
 ```
-public/
-  index.html            markup, including the tool panels
-  css/style.css         all styling — and the canvas palette, see below
-  src/
-    math/
-      parser.js         tokeniser + recursive-descent parser → AST
-      ast.js            node constructors and helpers
-      functions.js      the function registry: numeric impl + derivative rule
-      compile.js        AST → a JavaScript closure
-      derive.js         symbolic differentiation
-      simplify.js       algebraic tidy-up, so output reads as algebra
-      format.js         AST → text, with precedence-aware parentheses
-      numeric.js        adaptive Simpson, bisection, golden section
-      expression.js     the facade everything else uses
-    graph/
-      viewport.js       the camera: world ↔ screen, pan, zoom
-      sampler.js        adaptive sampling  ← the interesting one
-      ticks.js          1-2-5 tick selection and label formatting
-      renderer.js       canvas drawing
-    features/
-      riemann.js        the four sum rules, plus convergence tables
-      tangent.js        tangent and secant geometry
-      keypoints.js      roots, turning points, nearest-curve search
-    ui/                 the function list, tool panels, theme, dialogs
-    state.js            state, autosave, URL sharing
-    app.js              frame loop, input handling, overlay drawing
-  tests/                the suite and a small runner
+index.html          markup, including the tool panels
+css/style.css       all styling — and the canvas palette, see below
+src/
+  math/
+    parser.js         tokeniser + recursive-descent parser → AST
+    ast.js            node constructors and helpers
+    functions.js      the function registry: numeric impl + derivative rule
+    compile.js        AST → a JavaScript closure
+    derive.js         symbolic differentiation
+    simplify.js       algebraic tidy-up, so output reads as algebra
+    format.js         AST → text, with precedence-aware parentheses
+    numeric.js        adaptive Simpson, bisection, golden section
+    expression.js     the facade everything else uses
+  graph/
+    viewport.js       the camera: world ↔ screen, pan, zoom
+    sampler.js        adaptive sampling  ← the interesting one
+    ticks.js          1-2-5 tick selection and label formatting
+    renderer.js       canvas drawing
+  features/
+    riemann.js        the four sum rules, plus convergence tables
+    tangent.js        tangent and secant geometry
+    keypoints.js      roots, turning points, nearest-curve search
+  ui/                 the function list, tool panels, theme, dialogs
+  state.js            state, autosave, URL sharing
+  app.js              frame loop, input handling, overlay drawing
+tests/                the suite and a small runner
 ```
 
 Two decisions are worth explaining.

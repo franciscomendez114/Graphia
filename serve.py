@@ -36,7 +36,7 @@ class NoCacheHandler(SimpleHTTPRequestHandler):
 
 def main():
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8123
-    handler = partial(NoCacheHandler, directory="public")
+    handler = partial(NoCacheHandler, directory=".")
     with ThreadingHTTPServer(("127.0.0.1", port), handler) as server:
         print(f"Graphia running at http://localhost:{port}")
         print(f"Tests at         http://localhost:{port}/tests/")
